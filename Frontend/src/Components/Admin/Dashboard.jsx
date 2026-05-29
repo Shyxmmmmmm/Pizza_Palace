@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import API_URL from "../../config"
 import {
     FaPizzaSlice,
     FaUsers,
@@ -24,7 +25,7 @@ const Dashboard = () => {
 
     const fetchOrders = async () => {
 
-        const res = await axios.get("http://localhost:3000/AdminOrders")
+        const res = await axios.get(`${API_URL}/AdminOrders`)
         setOrders(res.data)
     }
 

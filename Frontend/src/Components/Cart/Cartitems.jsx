@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
+import API_URL from "../../config"
 
 const Cartitems = ({ item, fetchData }) => {
 
@@ -9,7 +10,7 @@ const Cartitems = ({ item, fetchData }) => {
 
     const DeleteItem = async () => {
 
-        await axios.delete(`http://localhost:3000/DeleteCart/${item._id}`)
+        await axios.delete(`${API_URL}/DeleteCart/${item._id}`)
 
         fetchData()
 
@@ -17,7 +18,7 @@ const Cartitems = ({ item, fetchData }) => {
 
     const Increase = async () => {
 
-        await axios.put(`http://localhost:3000/Increase/${item._id}`)
+        await axios.put(`${API_URL}/Increase/${item._id}`)
 
         fetchData()
 
@@ -25,7 +26,7 @@ const Cartitems = ({ item, fetchData }) => {
 
     const Decrease = async () => {
 
-        await axios.put(`http://localhost:3000/Decrease/${item._id}`)
+        await axios.put(`${API_URL}/Decrease/${item._id}`)
 
         fetchData()
 
@@ -48,7 +49,7 @@ const Cartitems = ({ item, fetchData }) => {
 
         if (payment === "Cash On Delivery") {
 
-            await axios.post("http://localhost:3000/PlaceOrder", {
+            await axios.post(`${API_URL}/PlaceOrder`, {
 
                 customerName: "Shyam",
 
@@ -60,7 +61,7 @@ const Cartitems = ({ item, fetchData }) => {
 
             })
 
-            await axios.delete(`http://localhost:3000/DeleteCart/${item._id}`)
+            await axios.delete(`${API_URL}/DeleteCart/${item._id}`)
 
             alert("Order Placed Successfully ✅")
 
@@ -70,7 +71,7 @@ const Cartitems = ({ item, fetchData }) => {
 
         // UPI PAYMENT
 
-        const res = await axios.post("http://localhost:3000/CreateOrder", {
+        const res = await axios.post(`${API_URL}/CreateOrder`, {
 
             amount: total
 
@@ -94,7 +95,7 @@ const Cartitems = ({ item, fetchData }) => {
 
             handler: async function (response) {
 
-                await axios.post("http://localhost:3000/PlaceOrder", {
+                await axios.post(`${API_URL}/PlaceOrder`, {
 
                     customerName: "Shyam",
 
@@ -106,7 +107,7 @@ const Cartitems = ({ item, fetchData }) => {
 
                 })
 
-                await axios.delete(`http://localhost:3000/DeleteCart/${item._id}`)
+                await axios.delete(`${API_URL}/DeleteCart/${item._id}`)
 
                 alert("Payment Successful ✅")
 

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from 'axios'
+import API_URL from "../../config"
 const Feedback = () => {
 
     const [ip1, setip1] = useState('')
@@ -11,7 +12,7 @@ const Feedback = () => {
     const func = async () => {
         setstate(true)
         try {
-            const res = await axios.post("http://localhost:3000/feedback", {
+            const res = await axios.post(`${API_URL}/feedback`, {
                 email: ip1,
                 message: ip2,
                 rating

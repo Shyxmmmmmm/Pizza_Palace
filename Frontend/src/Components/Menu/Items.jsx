@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import API_URL from '../../config'
 
 const Items = () => {
 
@@ -12,7 +13,7 @@ const Items = () => {
 
     useEffect(() => {
 
-        axios.get("http://localhost:3000/get")
+        axios.get(`${API_URL}/get`)
             .then((res) => {
 
                 setPizza(res.data)
@@ -41,7 +42,7 @@ const Items = () => {
 
     const func = async (item) => {
 
-        const data = await axios.post("http://localhost:3000/AddCart", {
+        const data = await axios.post(`${API_URL}/AddCart`, {
             id:item.id,
             name: item.name,
             price: item.price,

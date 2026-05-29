@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from 'axios'
+import API_URL from "../../config"
 const Login = () => {
     const navigate = useNavigate()
     const [ip1, setip1] = useState("")
@@ -20,7 +21,7 @@ const Login = () => {
     const func = async () => {
         try {
             setdisable(true)
-            const res = await axios.post("http://localhost:3000/Login", { username: ip1, password: ip2 ,role:role})
+            const res = await axios.post(`${API_URL}/Login`, { username: ip1, password: ip2 ,role:role})
 
             if (res.data === true && role==='user') {
                 localStorage.setItem("login", "true")

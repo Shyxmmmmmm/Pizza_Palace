@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-
+import API_URL from "../../config"
 const EditPizza = () => {
 
     const [id, setId] = useState("")
@@ -13,7 +13,7 @@ const EditPizza = () => {
 
         const data = await axios.put(
 
-            `http://localhost:3000/updatePizza/${id}`,
+            `${API_URL}/updatePizza/${id}`,
 
             {
                 id,

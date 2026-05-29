@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import API_URL from "../config"
 const AddPizza = () => {
     const navigate = useNavigate()
 
@@ -13,7 +14,7 @@ const AddPizza = () => {
     const submit = async () => {
         try {
             setstatus(true)
-            await axios.post("http://localhost:3000/AddPizza", {
+            await axios.post(`${API_URL}/AddPizza`, {
                 name,
                 price,
                 category,

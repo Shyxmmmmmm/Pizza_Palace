@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-
+import API_URL from "../../config"
 const Feedback = () => {
 
     const [data, setData] = useState([])
@@ -15,7 +15,7 @@ const Feedback = () => {
 
         try {
 
-            const res = await axios.get("http://localhost:3000/GetFeedback")
+            const res = await axios.get(`${API_URL}/GetFeedback`)
 
             setData(res.data)
 

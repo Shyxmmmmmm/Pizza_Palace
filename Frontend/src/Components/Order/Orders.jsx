@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import axios from "axios"
 import Orderitems from "./Orderitems"
 import { useNavigate } from "react-router-dom";
+import API_URL from "../../config";
 const Orders = () => {
     const [open, setOpen] = useState(false);
     const state = localStorage.getItem("login")
@@ -13,7 +14,7 @@ const Orders = () => {
 
     const fetchOrders = async () => {
 
-        const res = await axios.get("http://localhost:3000/GetOrders")
+        const res = await axios.get(`${API_URL}/GetOrders`)
 
         setOrders(res.data)
         console.log(res.data)

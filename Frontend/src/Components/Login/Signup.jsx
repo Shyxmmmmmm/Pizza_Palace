@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import API_URL from "../../config"
 const Signup = () => {
     const [ip1, setip1] = useState('')
     const [ip2, setip2] = useState('')
@@ -21,7 +22,7 @@ const Signup = () => {
                 return
             }
 
-            const res = await axios.post("http://localhost:3000/Signup", { username: ip1, password: ip2 ,role:role})
+            const res = await axios.post(`${API_URL}/Signup`, { username: ip1, password: ip2 ,role:role})
 
             if (res.data === true) {
                 setTimeout(() => {

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import Cartitems from "./Cartitems"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import API_URL from "../../config"
 const Cart = () => {
 
     const [open, setOpen] = useState(false)
@@ -13,7 +14,7 @@ const Cart = () => {
 
     const fetchData = async () => {
 
-        const res = await axios.get("http://localhost:3000/GetCart")
+        const res = await axios.get(`${API_URL}/GetCart`)
         setCartData(res.data)
 
     }
@@ -43,7 +44,7 @@ const Cart = () => {
 
         // Create Razorpay Order
 
-        const res = await axios.post("http://localhost:3000/CreateOrder", {
+        const res = await axios.post(`${API_URL}/CreateOrder`, {
 
             amount: total
 
@@ -67,7 +68,7 @@ const Cart = () => {
 
             handler: async function (response) {
 
-                await axios.post("http://localhost:3000/PlaceOrder", {
+                await axios.post(`${API_URL}/PlaceOrder`, {
 
                     customerName: state.name,
 
@@ -79,7 +80,7 @@ const Cart = () => {
 
                 })
 
-                await axios.delete("http://localhost:3000/ClearCart")
+                await axios.delete(`${API_URL}/ClearCart`)
                 alert("Payment Successful ✅")
                 navigate("/Orders")
 

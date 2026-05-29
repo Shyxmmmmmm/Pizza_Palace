@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import API_URL from '../../config'
 
 const Orders = () => {
 
@@ -7,7 +8,7 @@ const Orders = () => {
 
     const fetchOrders = async () => {
 
-        const res = await axios.get("http://localhost:3000/AdminOrders")
+        const res = await axios.get(`${API_URL}/AdminOrders`)
 
         setOrders(res.data)
 

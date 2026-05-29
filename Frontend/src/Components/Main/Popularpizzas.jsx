@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import API_URL from "../../config"
 
 const Popularpizzas = () => {
 
@@ -40,7 +41,7 @@ const Popularpizzas = () => {
 
     const func = async (item) => {
 
-        const data = await axios.post("http://localhost:3000/AddCart", {
+        const data = await axios.post(`${API_URL}/AddCart`, {
 
             name: item.name,
             price: item.price,
