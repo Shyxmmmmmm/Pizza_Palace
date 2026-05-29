@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const app = express()
 app.use(cors())
 app.use(express.json())
-
+require("dotenv").config()
 const insertData = require("./insertData")
 
 const authRoutes = require("./router/authRouter")
@@ -21,12 +21,13 @@ app.use(pizzaRouter)
 app.use(orderRouter)
 app.delete("/ClearCart", clearcartControllers)
 
-mongoose.connect("mongodb://127.0.0.1:27017/pizzashop")
+mongoose.connect(process.env.MONGO_URL)
     .then(() => {
-        console.log("Db connected ")
+        console.log("Db connected")
     })
-    .catch(() => {
+    .catch((err) => {
         console.log("Db Not Connected")
+        console.error(err)
     })
 
 app.listen(3000, () => {
