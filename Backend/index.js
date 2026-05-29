@@ -22,15 +22,13 @@ app.use(orderRouter)
 app.delete("/ClearCart", clearcartControllers)
 
 mongoose.connect(process.env.MONGO_URL)
-    .then(async () => {
-        console.log("Db connected")
-
-        await insertData()
-    })
-    .catch((err) => {
-        console.log("Db Not Connected")
-        console.error(err)
-    })
+  .then(() => {
+    console.log("Db connected")
+  })
+  .catch((err) => {
+    console.log("Db Not Connected")
+    console.error(err)
+  })
 
 app.listen(3000, () => {
     console.log("Server Started...")
