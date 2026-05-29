@@ -24,6 +24,8 @@ app.delete("/ClearCart", clearcartControllers)
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
         console.log("Db connected")
+
+        await insertData()
     })
     .catch((err) => {
         console.log("Db Not Connected")
