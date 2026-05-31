@@ -1,4 +1,5 @@
 const log = require('../models/logmodels')
+
 const Login = async (req, res) => {
 
     try {
@@ -17,7 +18,7 @@ const Login = async (req, res) => {
             role: req.body.role
         })
 
-        if (data) {
+        if (data){
             res.send(true)
         }
 
@@ -32,6 +33,7 @@ const Login = async (req, res) => {
     }
 
 }
+
 const Signup = async (req, res) => {
 
     try {

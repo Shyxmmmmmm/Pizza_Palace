@@ -83,8 +83,6 @@ const Home = () => {
                 </div>
 
                 <div className="lg:flex hidden gap-3">
-
-                    {/* Profile button always */}
                     <button
                         onClick={func1}
                         className="p-1 text-white cursor-pointer w-20 bg-blue-600 rounded-full hover:bg-blue-800"
@@ -111,8 +109,18 @@ const Home = () => {
                 <div className="lg:hidden flex items-center gap-5">
 
                     <div>
-                        <button onClick={func} className="border p-1 bg-[#ED5006] hover:bg-red-700 text-white rounded cursor-pointer w-20">
-                            Login
+                        <button
+                            onClick={() => {
+                                if (state) {
+                                    localStorage.removeItem("login")
+                                    setState(null)
+                                } else {
+                                    navigate("/Login")
+                                }
+                            }}
+                            className="border p-1 bg-[#ED5006] hover:bg-red-700 text-white rounded cursor-pointer w-20"
+                        >
+                            {state ? "Logout" : "Login"}
                         </button>
                     </div>
 

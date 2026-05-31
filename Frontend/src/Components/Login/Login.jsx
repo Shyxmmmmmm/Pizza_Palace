@@ -62,26 +62,24 @@ const Login = () => {
                 <h1 className="text-lg font-semibold mb-5">Welcome Back 👋</h1>
                 <div className="flex justify-center gap-20 mb-6">
                     <div
-                        onClick={() => {setRole("user")
+                        onClick={() => {
+                            setRole("user")
                             setip1("")
                             setip2("")}
                         }
                         className={`cursor-pointer pb-2 text-lg font-semibold transition-all duration-300 ${role === "user"
-                            ? "text-orange-500 border-b-2 border-orange-500"
-                            : "text-gray-500"}`}
-                    >
+                            ? "text-orange-500 border-b-2 border-orange-500": "text-gray-500"}`}>
                         User
                     </div>
 
                     <div
-                        onClick={() => {setRole("admin")
+                        onClick={() => {
+                            setRole("admin")
                             setip1("")
                             setip2("")}
                         }
                         className={`cursor-pointer pb-2 text-lg font-semibold transition-all duration-300 ${role === "admin"
-                            ? "text-orange-500 border-b-2 border-orange-500"
-                            : "text-gray-500"}`}
-                    >
+                            ? "text-orange-500 border-b-2 border-orange-500": "text-gray-500"}`}>
                         Admin
                     </div>
                 </div>
