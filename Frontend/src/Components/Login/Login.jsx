@@ -9,11 +9,11 @@ const Login = () => {
     const [role, setRole] = useState("user")
     const [disable, setdisable] = useState(false)
 
-    const redirect=()=>{
-        if(role==="user"){
+    const redirect = () => {
+        if (role === "user") {
             return true
         }
-        else{
+        else {
             return false
         }
     }
@@ -21,9 +21,9 @@ const Login = () => {
     const func = async () => {
         try {
             setdisable(true)
-            const res = await axios.post(`${API_URL}/Login`, { username: ip1, password: ip2 ,role:role})
+            const res = await axios.post(`${API_URL}/Login`, { username: ip1, password: ip2, role: role })
 
-            if (res.data === true && role==='user') {
+            if (res.data === true && role === 'user') {
                 localStorage.setItem("login", "true")
                 localStorage.setItem("role", role)
                 localStorage.setItem("username", ip1)
@@ -32,7 +32,7 @@ const Login = () => {
                 }, 2000);
 
             }
-            else if(res.data === true && role==='admin'){
+            else if (res.data === true && role === 'admin') {
                 localStorage.setItem("login", "true")
                 localStorage.setItem("role", role)
                 localStorage.setItem("username", ip1)
@@ -67,10 +67,11 @@ const Login = () => {
                         onClick={() => {
                             setRole("user")
                             setip1("")
-                            setip2("")}
+                            setip2("")
+                        }
                         }
                         className={`cursor-pointer pb-2 text-lg font-semibold transition-all duration-300 ${role === "user"
-                            ? "text-orange-500 border-b-2 border-orange-500": "text-gray-500"}`}>
+                            ? "text-orange-500 border-b-2 border-orange-500" : "text-gray-500"}`}>
                         User
                     </div>
 
@@ -78,18 +79,33 @@ const Login = () => {
                         onClick={() => {
                             setRole("admin")
                             setip1("")
-                            setip2("")}
+                            setip2("")
+                        }
                         }
                         className={`cursor-pointer pb-2 text-lg font-semibold transition-all duration-300 ${role === "admin"
-                            ? "text-orange-500 border-b-2 border-orange-500": "text-gray-500"}`}>
+                            ? "text-orange-500 border-b-2 border-orange-500" : "text-gray-500"}`}>
                         Admin
                     </div>
                 </div>
-                
+
                 <input value={ip1} onChange={(e) => { setip1(e.target.value) }} type="text" placeholder="Email or phone number" className="border p-2 bg-white rounded w-[90%]" />
                 <input value={ip2} onChange={(e) => { setip2(e.target.value) }} type="password" placeholder="Password" className="border p-2 bg-white w-[90%] rounded" />
                 <button disabled={disable} onClick={func} className="border p-2 bg-[#E17100] text-white cursor-pointer w-[90%] rounded hover:bg-amber-700">{disable ? "Logging..." : "Login"}</button>
-                <p onClick={() => { navigate("/Signup") }} className="cursor-pointer  hover:underline hover:text-[#E17100]">{redirect()?"Create an account":""}</p>
+                <p
+                    onClick={() => {
+                        if (role === "user") {
+                            navigate("/Signup")
+                        }
+                    }}
+                    className={`${role === "user"
+                        ? "cursor-pointer hover:underline hover:text-[#E17100]"
+                        : "text-gray-600"
+                        }`}
+                >
+                    {role === "user"
+                        ? "Create an account"
+                        : "Username: admin | Password: 123"}
+                </p>
             </div>
         </div>
     )
