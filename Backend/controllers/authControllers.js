@@ -66,4 +66,58 @@ const Signup = async (req, res) => {
 
 }
 
-module.exports = { Login, Signup }
+const GetProfile = async (req, res) => {
+
+    try {
+
+        const data = await log.findOne({
+            username: req.params.username
+        })
+
+        res.send(data)
+
+    }
+
+    catch (err) {
+
+        console.log(err)
+
+        res.send(null)
+
+    }
+
+}
+
+const UpdateProfile = async (req, res) => {
+
+    try {
+
+        await log.findOneAndUpdate(
+
+            { username: req.body.username },
+
+            {
+
+                email: req.body.email,
+
+                phone: req.body.phone
+
+            }
+
+        )
+
+        res.send(true)
+
+    }
+
+    catch (err) {
+
+        console.log(err)
+
+        res.send(false)
+
+    }
+
+}
+
+module.exports = {Login,Signup,GetProfile,UpdateProfile}

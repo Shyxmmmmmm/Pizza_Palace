@@ -34,6 +34,23 @@ const CreateOrder = async (req, res) => {
     }
 
 }
+const AdminOrders = async (req, res) => {
+
+    try {
+
+        const data = await Order.find()
+
+        res.send(data)
+
+    }
+
+    catch (err) {
+
+        console.log(err)
+
+    }
+
+}
 
 const PlaceOrder = async (req, res) => {
 
@@ -93,4 +110,9 @@ const GetOrders = async (req, res) => {
 
 }
 
-module.exports = { PlaceOrder, GetOrders, CreateOrder }
+module.exports = {
+    PlaceOrder,
+    GetOrders,
+    CreateOrder,
+    AdminOrders
+}

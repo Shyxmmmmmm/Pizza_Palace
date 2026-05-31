@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-
+import axios from 'axios'
+import API_URL from '../../config'
 const Profile = () => {
     const username = localStorage.getItem("username")
     const navigate = useNavigate()
+
+    const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
+    const [edit, setEdit] = useState(false)
+
+    const fetchProfile = async () => {
+
+        const res = await axios.get(
+            `${API_URL}/Profile/${username}`
+        )
+
+        setEmail(res.data?.email || "")
+        setPhone(res.data?.phone || "")
+    }
+
+    useEffect(() => {
+
+        fetchProfile()
+
+    }, [])
 
     const logout = () => {
 
@@ -13,6 +34,26 @@ const Profile = () => {
 
         navigate("/Login")
 
+    }
+
+    const saveProfile = async () => {
+
+        const res = await axios.put(
+            `${API_URL}/UpdateProfile`,
+            {
+                username,
+                email,
+                phone
+            }
+        )
+
+        if (res.data === true) {
+
+            alert("Profile Updated")
+
+            setEdit(false)
+
+        }
     }
 
     return (
@@ -98,35 +139,57 @@ const Profile = () => {
                                 Email
                             </p>
 
-                            <h1 className='text-lg text-gray-800'>
-                                shyam@gmail.com
-                            </h1>
+                            {
+                                edit ?
 
+                                    <input
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        className='border p-2 rounded w-full'
+                                    />
+
+                                    :
+
+                                    <h1 className='text-lg text-gray-800'>
+                                        {email || "-"}
+                                    </h1>
+                            }
                         </div>
 
-
                         <div>
-
                             <p className='text-gray-500 font-semibold'>
                                 Phone
                             </p>
-
-                            <h1 className='text-lg text-gray-800'>
-                                +91 9876543210
-                            </h1>
-
+                            {
+                                edit ?
+                                    <input
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        className='border p-2 rounded w-full'
+                                    />
+                                    :
+                                    <h1 className='text-lg text-gray-800'>
+                                        {phone || "-"}
+                                    </h1>
+                            }
                         </div>
-
                     </div>
-
-
                     {/* Buttons */}
-
                     <div className='flex flex-col gap-4 mt-8'>
+                        <button
+                            onClick={() => {
+                                if (edit) {
+                                    saveProfile()
+                                }
+                                else {
+                                    setEdit(true)
+                                }
 
-                        <button className='bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 font-semibold'>
+                            }}
+                            className='bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 font-semibold'
+                        >
 
-                            Edit Profile
+                            {edit ? "Save Profile" : "Edit Profile"}
 
                         </button>
 
