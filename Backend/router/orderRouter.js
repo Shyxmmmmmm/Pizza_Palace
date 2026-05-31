@@ -4,6 +4,6 @@ const {PlaceOrder,GetOrders,CreateOrder}= require("../controllers/orderControlle
 
 router.post("/CreateOrder", CreateOrder)
 router.post("/PlaceOrder", PlaceOrder)
-router.get("/GetOrders", GetOrders)
+router.get("/GetOrders/:username", GetOrders)
 router.get("/AdminOrders", GetOrders)
 module.exports = router

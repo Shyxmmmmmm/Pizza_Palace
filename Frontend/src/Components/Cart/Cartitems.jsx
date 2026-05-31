@@ -5,21 +5,16 @@ import API_URL from "../../config"
 const Cartitems = ({ item, fetchData }) => {
 
     const [showOrder, setShowOrder] = useState(false)
-
     const [payment, setPayment] = useState("")
-
     const DeleteItem = async () => {
 
         await axios.delete(`${API_URL}/DeleteCart/${item._id}`)
-
         fetchData()
 
     }
 
     const Increase = async () => {
-
         await axios.put(`${API_URL}/Increase/${item._id}`)
-
         fetchData()
 
     }
@@ -32,6 +27,7 @@ const Cartitems = ({ item, fetchData }) => {
 
     }
 
+    const username = localStorage.getItem("username")
     const OrderThis = async () => {
 
         if (!payment) {
@@ -51,7 +47,7 @@ const Cartitems = ({ item, fetchData }) => {
 
             await axios.post(`${API_URL}/PlaceOrder`, {
 
-                customerName: "Shyam",
+                customerName: username,
 
                 items: [item],
 
@@ -97,7 +93,7 @@ const Cartitems = ({ item, fetchData }) => {
 
                 await axios.post(`${API_URL}/PlaceOrder`, {
 
-                    customerName: "Shyam",
+                    customerName: username,
 
                     items: [item],
 

@@ -11,7 +11,7 @@ const Cart = () => {
     const [cartData, setCartData] = useState([])
     const [showPayment, setShowPayment] = useState(false)
     const [payment, setPayment] = useState("")
-
+    const username = localStorage.getItem("username")
     const fetchData = async () => {
 
         const res = await axios.get(`${API_URL}/GetCart`)
@@ -70,7 +70,7 @@ const Cart = () => {
 
                 await axios.post(`${API_URL}/PlaceOrder`, {
 
-                    customerName: state.name,
+                    customerName: username,
 
                     items: cartData,
 

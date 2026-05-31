@@ -9,12 +9,12 @@ const Orders = () => {
     const [open, setOpen] = useState(false);
     const state = localStorage.getItem("login")
     const [orders, setOrders] = useState([])
+    const username = localStorage.getItem("username")
     const navigate=useNavigate()
-
 
     const fetchOrders = async () => {
 
-        const res = await axios.get(`${API_URL}/GetOrders`)
+        const res = await axios.get(`${API_URL}/GetOrders/${username}`)
 
         setOrders(res.data)
         console.log(res.data)

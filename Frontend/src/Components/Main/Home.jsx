@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "./Hero";
 import Services from "./Services";
@@ -31,6 +31,9 @@ const Home = () => {
         }
     }
 
+    useEffect(() => {
+        setState(localStorage.getItem("login"))
+    }, [])
 
     return (
         <div className="min-h-screen bg-gradient-to-r pb-10  from-[#3e5151] via-[#decba4] to-[#3e5151] pt-10">

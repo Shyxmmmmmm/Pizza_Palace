@@ -75,7 +75,11 @@ const GetOrders = async (req, res) => {
 
     try {
 
-        const data = await Order.find()
+        const username = req.params.username
+
+        const data = await Order.find({
+            customerName: username
+        })
 
         res.send(data)
 

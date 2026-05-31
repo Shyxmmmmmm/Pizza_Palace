@@ -26,6 +26,7 @@ const Login = () => {
             if (res.data === true && role==='user') {
                 localStorage.setItem("login", "true")
                 localStorage.setItem("role", role)
+                localStorage.setItem("username", ip1)
                 setTimeout(() => {
                     navigate("/")
                 }, 2000);
@@ -34,6 +35,7 @@ const Login = () => {
             else if(res.data === true && role==='admin'){
                 localStorage.setItem("login", "true")
                 localStorage.setItem("role", role)
+                localStorage.setItem("username", ip1)
                 setTimeout(() => {
                     navigate("/admin")
                 }, 2000);
