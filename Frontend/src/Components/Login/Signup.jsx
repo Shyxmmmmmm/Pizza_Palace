@@ -51,10 +51,10 @@ const Signup = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-r pb-10 flex flex-col items-center justify-center from-[#3e5151] via-[#decba4] to-[#3e5151] pt-10">
-            <div className="bg-amber-600 flex flex-col w-[30%] p-3 rounded-t-2xl items-center">
+            <div className="bg-amber-600 flex flex-col w-[70%] lg:w-[30%] p-3 rounded-t-2xl items-center">
                 <h1 className="text-xl font-semibold text-white">The Pizza Palace</h1>
             </div>
-            <div className="bg-white  flex flex-col gap-5 p-5 w-[30%] items-center rounded-b-2xl">
+            <div className="bg-white  flex flex-col gap-5 p-5 w-[70%] lg:w-[30%] items-center rounded-b-2xl">
                 <h1 className="text-lg font-semibold mb-5">Create Account</h1>
                 <input value={ip1} onChange={(e) => { setip1(e.target.value) }} type="text" placeholder="Email or phone number" className="border p-2 bg-white rounded w-[90%]" />
                 <input value={ip2} onChange={(e) => { setip2(e.target.value) }} type="password" placeholder="Password" className="border p-2 bg-white w-[90%] rounded" />
