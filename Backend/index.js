@@ -22,10 +22,10 @@ app.use(cartRouter)
 app.use(pizzaRouter)
 app.use(orderRouter)
 app.delete("/ClearCart", clearcartControllers)
-
 mongoose.connect(process.env.MONGO_URL)
-  .then(() => {
+  .then(async() => {
     console.log("Db connected")
+    await insertData()  
   })
   .catch((err) => {
     console.log("Db Not Connected")

@@ -14,13 +14,9 @@ const pizzaSchema = new mongoose.Schema({
         type:Number
     },
 
-    category:{
-        type:String
-    },
+    category:{type:String},
 
-    image:{
-        type:String
-    }
+    image:{type:String}
 
 })
 
