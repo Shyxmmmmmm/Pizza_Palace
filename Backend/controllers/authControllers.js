@@ -38,30 +38,36 @@ const Signup = async (req, res) => {
 
     try {
 
+        console.log("SIGNUP REQUEST =", req.body)
+
         const exists = await log.findOne({
             username: req.body.username
         })
 
+        console.log("EXISTS =", exists)
+
         if (exists) {
-            res.send(false)
+            return res.send(false)
         }
 
-        else {
+        await log.create({
+            username: req.body.username,
+            password: req.body.password,
+            role: req.body.role,
+        })
 
-            await log.create({
-                username: req.body.username,
-                password: req.body.password,
-                role: req.body.role,
-            })
+        console.log("USER CREATED")
 
-            res.send(true)
-        }
+        return res.send(true)
 
     }
 
     catch (err) {
-        console.log(err)
-        res.send(false)
+
+        console.log("SIGNUP ERROR =", err)
+
+        return res.send(false)
+
     }
 
 }
