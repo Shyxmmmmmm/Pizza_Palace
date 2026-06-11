@@ -7,8 +7,6 @@ app.use(cors())
 app.use(express.json())
 require("dotenv").config()
 dns.setServers(["8.8.8.8", "1.1.1.1"])
-
-
 const insertData = require("./insertData")
 
 const authRoutes = require("./router/authRouter")
