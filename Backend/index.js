@@ -2,9 +2,11 @@ const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
 const app = express()
+const dns = require("dns")
 app.use(cors())
 app.use(express.json())
 require("dotenv").config()
+dns.setServers(["8.8.8.8", "1.1.1.1"])
 
 
 const insertData = require("./insertData")
@@ -22,10 +24,10 @@ app.use(cartRouter)
 app.use(pizzaRouter)
 app.use(orderRouter)
 app.delete("/ClearCart", clearcartControllers)
+
 mongoose.connect(process.env.MONGO_URL)
-  .then(async() => {
-    console.log("Db connected")
-      
+  .then(async () => {
+    console.log("Db connected") 
   })
   .catch((err) => {
     console.log("Db Not Connected")
@@ -33,5 +35,5 @@ mongoose.connect(process.env.MONGO_URL)
   })
 
 app.listen(3000, () => {
-    console.log("Server Started...")
+  console.log("Server Started...")
 })
