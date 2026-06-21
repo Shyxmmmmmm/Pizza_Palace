@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import axios from 'axios'
+import axios from "axios"
 import API_URL from "../../config"
 const Login = () => {
     const navigate = useNavigate()
@@ -103,7 +103,7 @@ const Login = () => {
                         }`}
                 >
                     {role === "user"
-                        ? "Create an account"
+                        ? "New User? Register Here"
                         : "Username: admin | Password: 123"}
                 </p>
             </div>

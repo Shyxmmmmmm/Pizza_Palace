@@ -39,7 +39,7 @@ const Home = () => {
         <div className="min-h-screen bg-gradient-to-r pb-10  from-[#3e5151] via-[#decba4] to-[#3e5151] pt-10">
 
             {/*Nav bar */}
-            <div className="shadow-2xl flex justify-between items-center mx-10 p-4 rounded-t-2xl bg-white">
+            <div className="shadow-2xl flex justify-between items-center lg:mx-10 md:mx-5 mx-3 p-4 rounded-t-2xl bg-white">
 
                 <div className="flex items-center justify-center gap-2">
                     <i className="fa-brands fa-pixiv fa-2xl" style={{ color: "rgb(237, 80, 6)" }}></i>
@@ -88,7 +88,7 @@ const Home = () => {
                 <div className="lg:flex hidden gap-3">
                     <button
                         onClick={func1}
-                        className="p-1 text-white cursor-pointer w-20 bg-blue-600 rounded-full hover:bg-blue-800"
+                        className="p-1 text-white cursor-pointer w-20 bg-blue-600 rounded hover:bg-blue-800"
                     >
                         {state ? "Profile" : "Login"}
                     </button>
@@ -184,24 +184,24 @@ const Home = () => {
 
             {/*Hero bar */}
 
-            <div className="shadow-2xl flex items-center mx-10 bg-white">
+            <div className="shadow-2xl flex items-center lg:mx-10 mx-3 bg-white">
                 <Hero />
             </div>
 
             {/*services */}
-            <div className="shadow-2xl  mx-10 bg-white">
+            <div className="shadow-2xl  lg:mx-10 md:mx-5 mx-3 bg-white">
                 <Services></Services>
             </div>
 
             {/*Popular pizzas */}
-            <div className="shadow-2xl  mx-10 bg-white">
+            <div className="shadow-2xl  lg:mx-10 md:mx-5 mx-3 bg-white">
                 <PopularPizzas />
             </div>
 
 
 
             {/* */}
-            <div className="shadow-2xl  mt-5  mx-10 bg-white flex gap-2 justify-between lg:p-10  lg:pr-40 p-2 p-4">
+            <div className="shadow-2xl  mt-5  lg:mx-10 md:mx-5 mx-3 bg-white flex gap-2 justify-between lg:p-10  lg:pr-40 p-4">
                 <div className="lg:pl-10 pl-2">
                     <h1 className="font-bold lg:text-2xl text-[#373636]">The Pizza Palace</h1>
                     <p className="mt-3 text-gray-600 lg:text-base text-xs">Our job is to fill your tummy with <br />Delicious Food</p>

@@ -11,7 +11,7 @@ const Menu = () => {
         <div className="min-h-screen bg-gradient-to-r pb-10  from-[#3e5151] via-[#decba4] to-[#3e5151] pt-10">
 
             {/*Nav bar */}
-            <div className="shadow-2xl flex justify-between items-center mx-10 p-4 rounded-t-2xl bg-white">
+            <div className="shadow-2xl flex justify-between items-center lg:mx-10 md:mx-5 mx-3 p-4 rounded-t-2xl bg-white">
 
                 <div className="flex items-center justify-center gap-2">
                     <i className="fa-brands fa-pixiv fa-2xl" style={{ color: "rgb(237, 80, 6)" }}></i>
@@ -73,7 +73,7 @@ const Menu = () => {
             </div>
 
             {/*Menu */}
-            <div className="shadow-2xl flex items-center mx-10 p-5 bg-white">
+            <div className="shadow-2xl flex items-center lg:mx-10 md:mx-5 mx-3 p-5 bg-white">
                 <Items />
             </div>
             <div>

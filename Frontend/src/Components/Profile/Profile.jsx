@@ -186,7 +186,7 @@ const Profile = () => {
                                 }
 
                             }}
-                            className='bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 font-semibold'
+                            className='bg-blue-600 cursor-pointer text-white py-3 rounded-xl hover:bg-blue-700 font-semibold'
                         >
 
                             {edit ? "Save Profile" : "Edit Profile"}
@@ -195,7 +195,7 @@ const Profile = () => {
 
                         <button
                             onClick={logout}
-                            className='bg-red-500 text-white py-3 rounded-xl hover:bg-red-700 font-semibold'
+                            className='bg-red-500 cursor-pointer text-white py-3 rounded-xl hover:bg-red-700 font-semibold'
                         >
 
                             Logout

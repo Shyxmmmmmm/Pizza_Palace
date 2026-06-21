@@ -7,7 +7,7 @@ const Signup = () => {
     const [ip2, setip2] = useState('')
     const [ip3, setip3] = useState('')
     const [dis, setdis] = useState(false)
-    const role='user'
+    const role = 'user'
     const navigate = useNavigate()
     const func = async () => {
         try {
@@ -22,7 +22,7 @@ const Signup = () => {
                 return
             }
 
-            const res = await axios.post(`${API_URL}/Signup`, { username: ip1, password: ip2 ,role:role})
+            const res = await axios.post(`${API_URL}/Signup`, { username: ip1, password: ip2, role: role })
 
             if (res.data === true) {
                 setTimeout(() => {
@@ -60,7 +60,7 @@ const Signup = () => {
                 <input value={ip2} onChange={(e) => { setip2(e.target.value) }} type="password" placeholder="Password" className="border p-2 bg-white w-[90%] rounded" />
                 <input value={ip3} onChange={(e) => { setip3(e.target.value) }} type="password" placeholder="Confirm password" className="border p-2 bg-white w-[90%] rounded" />
                 <button onClick={func} disabled={dis} className="border p-2 bg-[#E17100] text-white cursor-pointer w-[90%] rounded hover:bg-amber-700">{dis ? "Signing up" : "Signup"}</button>
-                <p onClick={() => { navigate("/Login") }} className="cursor-pointer  hover:underline hover:text-[#E17100]">Already have an account</p>
+                <p onClick={() => { navigate("/Login") }} className="cursor-pointer  hover:underline hover:text-[#E17100]">Already have an account? Login Here</p>
             </div>
         </div>
     )

@@ -1,61 +1,65 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  const func = () => {
+    navigate("/Menu");
+  };
 
-    const func = () => {
-        navigate("/Menu")
-    }
+  const func1 = () => {
+    navigate("/Cart");
+  };
 
-    const func1 = () => {
-        navigate("/Cart")
-    }
+  return (
+    <div className="relative w-full h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden">
 
-    return (
+      {/* Background Image */}
+      <img
+        src="/assets/p2.jpg"
+        alt="pizza"
+        className="w-full h-full object-cover object-center"
+      />
 
-        <div className='relative h-112 w-full overflow-hidden'>
+      {/* Top Text */}
+      <h1 className="absolute top-12 md:top-20 left-5 md:left-10 text-xl md:text-2xl font-bold text-[#E57F0A]">
+        Hot.Fresh.Delicious.
+      </h1>
 
-            <img
-                src="/assets/p2.jpg"
-                alt="img1"
-                className='object-cover w-full h-full'
-            />
+      {/* Main Heading */}
+      <h1 className="absolute top-24 md:top-35 left-5 md:left-10 text-3xl md:text-4xl text-white font-bold leading-tight">
+        Pizza Delivered <br />
+        To Your <span className="text-[#E57F0A]">Doorstep</span>
+      </h1>
 
-            <h1 className='z-10 absolute top-20 left-10 text-2xl font-bold text-[#E57F0A]'>
-                Hot.Fresh.Delicious.
-            </h1>
+      {/* Description */}
+      <p className="absolute top-48 md:top-60 left-5 md:left-10 text-base md:text-2xl text-white font-semibold leading-relaxed">
+        Choose from a wide range of pizzas
+        <br />
+        and get it delivered hot and fresh.
+      </p>
 
-            <h1 className='absolute lg:top-35 top-30 left-10 lg:text-4xl text-2xl text-white font-bold'>
-                Pizza Delivered <br />
-                To Your <span className='text-[#E57F0A] font-bold'>Doorstep</span>
-            </h1>
+      {/* Buttons */}
+      <div className="absolute top-80 md:top-85 left-5 md:left-10 flex gap-4 flex-wrap">
 
-            <span className='absolute lg:top-60 top-50 text-white font-bold left-10 lg:text-2xl text-xl'>
-                Choose from a wide range of pizzas <br />
-                and get it delivered hot and fresh.
-            </span>
+        <button
+          onClick={func1}
+          className="bg-[#D7160A] px-4 py-2 text-white rounded hover:bg-red-900 hover:-translate-y-1 duration-300 cursor-pointer"
+        >
+          Your Cart
+        </button>
 
-            <div className='flex'>
+        <button
+          onClick={func}
+          className="border border-white px-4 py-2 text-white rounded hover:-translate-y-1 duration-300 cursor-pointer"
+        >
+          View Menu
+        </button>
 
-                <button onClick={func1} className='bg-[#D7160A] absolute top-85 left-10 p-2 text-white rounded hover:bg-red-900 cursor-pointer hover:-translate-y-2 duration-300'>
-                    Your Cart
-                </button>
+      </div>
 
-                <button
-                    onClick={func}
-                    className='absolute top-85 left-45 text-white rounded border border-white p-2 cursor-pointer hover:-translate-y-2 duration-300'>
+    </div>
+  );
+};
 
-                    View Menu
-
-                </button>
-
-            </div>
-
-        </div>
-
-    )
-
-}
-
-export default Hero
+export default Hero;

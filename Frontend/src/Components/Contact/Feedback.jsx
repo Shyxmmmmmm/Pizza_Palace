@@ -47,7 +47,7 @@ const Feedback = () => {
     }
 
     return (
-        <div className="shadow-2xl flex justify-between items-center mx-10 p-4 bg-white">
+        <div className="shadow-2xl flex justify-between items-center lg:mx-10 md:mx-5 mx-3 p-4 bg-white">
             <div className="max-w-xl mx-auto mt-16 flex w-full flex-col border rounded-lg bg-white p-8">
                 <h2 className="title-font mb-1 text-lg font-medium text-gray-900">Feedback</h2>
                 <p className="mb-5 leading-relaxed text-gray-600">If you had any issues or you liked our product, please share

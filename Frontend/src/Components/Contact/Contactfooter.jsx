@@ -1,6 +1,6 @@
 const Contactfooter=()=>{
     return(
-        <div className="shadow-2xl  mt-5  mx-10 bg-white flex gap-2 justify-between lg:p-10  lg:pr-40 p-2 p-4">
+        <div className="shadow-2xl  mt-5  lg:mx-10 md:mx-5 mx-2 bg-white flex gap-2 justify-between lg:p-10  lg:pr-40 p-2 p-4">
                 <div className="lg:pl-10 pl-2">
                     <h1 className="font-bold lg:text-2xl text-[#373636]">The Pizza Palace</h1>
                     <p className="mt-3 text-gray-600 lg:text-base text-xs">Our job is to fill your tummy with <br />Delicious Food</p>

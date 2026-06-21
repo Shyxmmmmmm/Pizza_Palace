@@ -101,7 +101,7 @@ const Cart = () => {
 
             {/* Navbar */}
 
-            <div className="shadow-2xl flex justify-between items-center mx-10 p-4 rounded-t-2xl bg-white">
+            <div className="shadow-2xl flex justify-between items-center lg:mx-10 md:mx-5 mx-3 p-4 rounded-t-2xl bg-white">
 
                 <div className="flex items-center justify-center gap-2">
 
@@ -187,7 +187,7 @@ const Cart = () => {
 
             {/* Cart Title */}
 
-            <div className="shadow-2xl flex items-center mx-10 p-5 bg-white">
+            <div className="shadow-2xl flex items-center lg:mx-10 md:mx-5 mx-3 p-5 bg-white">
 
                 <h1 className="font-bold text-2xl">
                     Your Cart
@@ -197,7 +197,7 @@ const Cart = () => {
 
 
             {/* Cart Items */}
-            <div className="mx-10 bg-white p-5 flex flex-col gap-5 rounded-b-2xl">
+            <div className="lg:mx-10 md:mx-5 mx-3 bg-white p-5 flex flex-col gap-5 rounded-b-2xl">
 
                 {
                     cartData.length > 0 ?
